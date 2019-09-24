@@ -1,5 +1,3 @@
-import { subHours, startOfHour, parseISO, isBefore, format } from 'date-fns';
-import pt from 'date-fns/locale/pt';
 import Task from '../schemas/Task';
 
 class TaskController {
