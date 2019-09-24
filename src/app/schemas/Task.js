@@ -15,6 +15,9 @@ const TaskSchema = new mongoose.Schema(
     legal_date: {
       type: Date,
     },
+    status: {
+      type: String,
+    },
     fine: {
       type: Boolean,
       default: false,
