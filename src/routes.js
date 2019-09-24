@@ -9,7 +9,7 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/tasks', TaskController.store);
-
+routes.get('/tasks', TaskController.index);
 routes.post('/files/:taskId', upload.single('file'), FileController.store);
 
 export default routes;
