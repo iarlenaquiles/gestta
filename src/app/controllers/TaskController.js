@@ -30,7 +30,10 @@ class TaskController {
   }
 
   async delete(req, res) {
-    return res.json();
+    const { taskId } = req.params;
+
+    await Task.deleteOne({ _id: taskId });
+    return res.json({ message: 'Removido com sucesso' });
   }
 }
 
