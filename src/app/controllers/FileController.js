@@ -22,6 +22,22 @@ class FileController {
 
     return res.json(task);
   }
+
+  async delete(req, res) {
+    const { taskId, docId } = req.params;
+
+    const task = await Task.findById(taskId);
+    const doc = await File.findById(docId);
+
+    if (task.documents.includes(doc._id)) {
+      task.documents.splice(doc._id, 1);
+      task.save();
+
+      doc.deleteOne({ _id: docId });
+      return res.json({ message: 'documento removido da task' });
+    }
+    return res.status(400).json({ message: 'documento nao encontrado' });
+  }
 }
 
 export default new FileController();
