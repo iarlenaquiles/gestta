@@ -19,14 +19,14 @@ class TaskController {
 
   async store(req, res) {
     const { name, customer, due_date, legal_date } = req.body;
-    await Task.create({
+    const task = await Task.create({
       name,
       customer,
       due_date,
       legal_date,
     });
 
-    return res.json({ message: 'Tarefa criada com sucesso' });
+    return res.json(task);
   }
 
   async delete(req, res) {
