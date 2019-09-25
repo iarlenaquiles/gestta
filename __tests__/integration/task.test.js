@@ -22,4 +22,10 @@ describe('Task', () => {
 
     expect(response.body.message).toBe('Removido com sucesso');
   });
+
+  it('Should be get all tasks', async () => {
+    const response = await request(app).get('/tasks');
+
+    expect(response.body.length).toBeGreaterThan(0);
+  });
 });

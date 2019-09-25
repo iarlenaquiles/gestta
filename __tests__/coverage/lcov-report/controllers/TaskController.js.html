@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/20</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">30% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>3/10</span>
+        <span class='fraction'>18/20</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">60% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>3/5</span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">47.06% </span>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.24% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/17</span>
+        <span class='fraction'>15/17</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,19 +90,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,20 +129,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Task from '../schemas/Task';<span class="branch-1 cbranch-no" title="branch not covered" ></span>
 &nbsp;
 class TaskController {
-<span class="fstat-no" title="function not covered" >  as</span>ync index(req, res) {
-    const tasks = <span class="cstat-no" title="statement not covered" >await Task.find({}).sort({ status: 'asc' });</span>
-<span class="cstat-no" title="statement not covered" >    tasks.map(<span class="fstat-no" title="function not covered" >ta</span>sk =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (task.legal_date &lt; new Date() &amp;&amp; task.fine) {</span>
+  async index(req, res) {
+    const tasks = await Task.find({}).sort({ status: 'asc' });
+    tasks.map(task =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (task.legal_date &lt; new Date() &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >task.fine)</span> {
 <span class="cstat-no" title="statement not covered" >        task.status = 'FINE';</span>
-      } else <span class="cstat-no" title="statement not covered" >if (task.due_date &lt; new Date()) {</span>
-<span class="cstat-no" title="statement not covered" >        task.status = 'OVERDUE';</span>
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (task.due_date &lt; new Date()) {
+        task.status = 'OVERDUE';
       } else {
 <span class="cstat-no" title="statement not covered" >        task.status = 'OK';</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      task.save();</span>
+      task.save();
     });
-<span class="cstat-no" title="statement not covered" >    return res.json(tasks);</span>
+    return res.json(tasks);
   }
 &nbsp;
   async store(req, res) {
@@ -172,7 +172,7 @@ export default new TaskController();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 24 2019 23:36:36 GMT-0300 (GMT-03:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 24 2019 23:44:45 GMT-0300 (GMT-03:00)
 </div>
 </div>
 <script src="../prettify.js"></script>
