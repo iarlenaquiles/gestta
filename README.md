@@ -47,3 +47,6 @@
   - yarn
   - run mongo service or docker
   - yarn test
+  
+ ![Cena 01](image1.png)
+ ![Cena 01](image2.png)
