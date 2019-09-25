@@ -18,9 +18,9 @@ class FileController {
     });
 
     task.documents.push(file._id);
-    await task.save();
+    const taskSave = await task.save();
 
-    return res.json(task);
+    return res.json(taskSave);
   }
 
   async delete(req, res) {
@@ -36,7 +36,7 @@ class FileController {
       doc.deleteOne({ _id: docId });
       return res.json({ message: 'documento removido da task' });
     }
-    return res.status(400).json({ message: 'documento nao encontrado' });
+    return res.json({ message: 'documento nao encontrado' });
   }
 }
 

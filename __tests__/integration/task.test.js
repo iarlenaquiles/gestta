@@ -32,7 +32,7 @@ describe('Task', () => {
   it('Should be get task OK', async () => {
     const response = await request(app).get('/tasks');
 
-    expect(response.body[1].status).toBe('OK');
+    expect(response.body[2].status).toBe('OK');
   });
 
   it('Should be get task OVERDUE', async () => {
