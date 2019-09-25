@@ -24,7 +24,7 @@
 `POST` /tasks
 ```json
     {
-	    "name": "estudar node",
+      "name": "estudar node",
       "customer": "ronaldo",
       "due_date": "2019-09-23",
       "legal_date": "2019-09-29"
