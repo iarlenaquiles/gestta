@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">86.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/15</span>
+        <span class='fraction'>13/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/10</span>
+        <span class='fraction'>6/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/3</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/12</span>
+        <span class='fraction'>10/12</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -68,46 +68,46 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Task from '../schemas/Task';<span class="branch-1 cbranch-no" title="branch not covered" ></span>
 &nbsp;
 class GetOneTaskController {
-<span class="fstat-no" title="function not covered" >  as</span>ync index(req, res) {
-    const { taskId } = <span class="cstat-no" title="statement not covered" >req.params;</span>
-    const tasks = <span class="cstat-no" title="statement not covered" >await Task.find({ _id: taskId }).sort({ status: 'asc' });</span>
-<span class="cstat-no" title="statement not covered" >    tasks.map(<span class="fstat-no" title="function not covered" >ta</span>sk =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (task.legal_date &lt; new Date() &amp;&amp; task.fine) {</span>
+  async index(req, res) {
+    const { taskId } = req.params;
+    const tasks = await Task.find({ _id: taskId }).sort({ status: 'asc' });
+    tasks.map(task =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (task.legal_date &lt; new Date() &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >task.fine)</span> {
 <span class="cstat-no" title="statement not covered" >        task.status = 'FINE';</span>
-      } else <span class="cstat-no" title="statement not covered" >if (task.due_date &lt; new Date()) {</span>
-<span class="cstat-no" title="statement not covered" >        task.status = 'OVERDUE';</span>
+      } else <span class="missing-if-branch" title="else path not taken" >E</span>if (task.due_date &lt; new Date()) {
+        task.status = 'OVERDUE';
       } else {
 <span class="cstat-no" title="statement not covered" >        task.status = 'OK';</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      task.save();</span>
+      task.save();
     });
-<span class="cstat-no" title="statement not covered" >    return res.json(tasks);</span>
+    return res.json(tasks);
   }
 }
 &nbsp;
@@ -118,7 +118,7 @@ export default new GetOneTaskController();
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 24 2019 23:23:54 GMT-0300 (GMT-03:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Sep 24 2019 23:32:16 GMT-0300 (GMT-03:00)
 </div>
 </div>
 <script src="../prettify.js"></script>
