@@ -14,4 +14,12 @@ describe('Task', () => {
 
     expect(response.body).toHaveProperty('_id');
   });
+
+  it('Should be delete a task', async () => {
+    const response = await request(app).delete(
+      '/tasks/5d8aceb8e72e3f69c5c8bb3e'
+    );
+
+    expect(response.body.message).toBe('Removido com sucesso');
+  });
 });
