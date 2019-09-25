@@ -43,7 +43,7 @@ describe('Task', () => {
 
   it('Should be get task FINE', async () => {
     const response = await request(app).get('/tasks');
-    console.log(response.body);
+
     expect(response.body[0].status).toBe('FINE');
   });
 });
